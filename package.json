@@ -1,0 +1,1 @@
+{"name":"foundation-tutorials","private":true,"scripts":{"dev":"npx serve .","android:add":"npx cap add android","android:sync":"npx cap sync android","android:open":"npx cap open android","android:build":"cd android && gradlew assembleDebug"},"dependencies":{"@capacitor/android":"latest","@capacitor/cli":"latest","@capacitor/core":"latest","serve":"latest"}}

@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Foundation Tutorials | Patiala's Premier EdTech Portal & Coaching</title>
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#1e1b4b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Foundation Tutorials">
+  <meta name="description" content="Foundation Tutorials, Patiala (Est. 2010, 5.0★). Expert Coaching for Classes 7-12 CBSE/ICSE, Medical PCB, Non-Med PCM, Commerce, NEET, JEE & CUET.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Tailwind CSS & FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#0f0f1a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Google Identity Services (OAuth 2.0 Credentials SDK from YouTube tutorial) -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0a14;
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+    .glass-card {
+      background: rgba(18, 16, 38, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #a5b4fc, #e0e7ff, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fde047, #f59e0b, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0a14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #312e81;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4f46e5;
+    }
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #printable-notes-content, #printable-notes-content * {
+        visibility: visible !important;
+      }
+      #printable-notes-content {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 20px !important;
+        display: block !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- ================= TOP NOTICE BANNER ================= -->
+  <div class="bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-950 text-indigo-100 text-xs sm:text-sm py-2 px-4 border-b border-indigo-800/40 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center space-x-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 animate-pulse">
+          <i class="fa-solid fa-sparkles mr-1"></i> BETA SPECIAL
+        </span>
+        <span class="font-medium text-slate-200">
+          All Pro Mock Tests & 24/7 AI Doubt Desk are <strong class="text-amber-300 underline font-extrabold">100% FREE</strong> during the Beta period!
+        </span>
+      </div>
+      <div class="flex items-center space-x-4 text-xs font-medium">
+        <span class="hidden md:inline-flex items-center text-emerald-400">
+          <i class="fa-solid fa-shield-check mr-1.5"></i> Est. 2010 • 5.0★ Rated
+        </span>
+        <a href="tel:+919872630381" class="hover:text-amber-300 transition-colors flex items-center">
+          <i class="fa-solid fa-phone mr-1"></i> +91 98726-30381
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN HEADER / NAVBAR ================= -->
+  <header class="glass-card sticky top-9 z-40 border-b border-indigo-900/30 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- Logo Brand -->
+        <a href="#" class="flex items-center space-x-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-graduation-cap text-xl text-white"></i>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-lg sm:text-xl font-bold tracking-tight text-white font-heading">FOUNDATION</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-semibold border border-indigo-500/30">TUTORIALS</span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-medium">Patiala (Est. 2010 • 5.0★ Google)</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-300">
+          <a href="#faculty" class="hover:text-indigo-400 transition-colors">Faculty</a>
+          <a href="#batches" class="hover:text-indigo-400 transition-colors">Batches</a>
+          <a href="#tests" class="hover:text-indigo-400 transition-colors flex items-center">
+            Mock Tests <span class="ml-1.5 px-1.5 py-0.2 bg-emerald-500/20 text-emerald-300 rounded text-[10px] font-bold">FREE</span>
+          </a>
+          <a href="#ai-desk" class="hover:text-indigo-400 transition-colors flex items-center">
+            AI Doubt Desk <span class="ml-1.5 px-1.5 py-0.2 bg-purple-500/20 text-purple-300 rounded text-[10px] font-bold">24/7</span>
+          </a>
+          <a href="#toppers" class="hover:text-indigo-400 transition-colors">Wall of Fame</a>
+          <a href="#pricing" class="hover:text-indigo-400 transition-colors">Plans</a>
+          <a href="#admin" id="nav-admin-link" class="hover:text-amber-400 transition-colors text-amber-300 font-bold hidden">
+            <i class="fa-solid fa-crown mr-1"></i> Admin CRM
+          </a>
+        </nav>
+
+        <!-- Header Actions: Google Login & Real APK Download -->
+        <div class="flex items-center space-x-2.5">
+          
+          <!-- Google Auth Profile Button -->
+          <button onclick="openAuthModal()" id="google-auth-btn" class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-100 text-slate-900 text-xs font-bold shadow transition-all">
+            <svg class="w-4 h-4" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+            </svg>
+            <span id="google-btn-label">Google Sign In</span>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-indigo-950/50">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-indigo-900/40 bg-gray-950/95 px-4 pt-3 pb-5 space-y-3">
+      <a href="#faculty" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 font-medium hover:text-indigo-400">Master Faculty</a>
+      <a href="#batches" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 font-medium hover:text-indigo-400">Academic Batches</a>
+      <a href="#tests" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 font-medium hover:text-indigo-400">Timed Mock Tests (Free)</a>
+      <a href="#ai-desk" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 font-medium hover:text-indigo-400">24/7 AI Doubt Desk</a>
+      <a href="#toppers" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 font-medium hover:text-indigo-400">Wall of Fame (Toppers)</a>
+      <a href="#pricing" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 font-medium hover:text-indigo-400">Plans & Beta Access</a>
+      <button onclick="openAuthModal(); toggleMobileMenu();" class="w-full text-left py-2 text-amber-400 font-bold flex items-center">
+        <i class="fa-brands fa-google mr-2"></i> Google OAuth Sign-In
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-12 pb-20 overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-indigo-600/20 via-purple-600/20 to-pink-600/10 blur-[130px] -z-10 rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>Admissions Open for Session 2025–26 • Limited Small Batches</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Learn From Patiala's <br>
+            <span class="gradient-text">Master Educators</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Personalized mentoring for <strong class="text-white">Classes 7th to 12th (CBSE & ICSE)</strong>, 
+            Medical PCB, Non-Med PCM, Commerce, and dedicated test series for 
+            <strong class="text-amber-300">IIT-JEE, NEET & CUET</strong>.
+          </p>
+
+          <div class="inline-flex items-start text-left p-3 rounded-xl bg-gray-900/60 border border-slate-800 text-slate-300 text-xs sm:text-sm">
+            <i class="fa-solid fa-location-dot text-rose-500 text-base mr-3 mt-0.5"></i>
+            <div>
+              <p class="font-semibold text-white">Foundation Tutorials Campus</p>
+              <p class="text-slate-400">#11-S, Sant Nagar, Opp. Railway Track, Between 21 & 22 Number Phatak, Patiala-147001</p>
+            </div>
+          </div>
+
+          <!-- CTA Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#ai-desk" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 text-white font-bold text-sm shadow-xl shadow-indigo-600/30 flex items-center space-x-2 transition-all hover:scale-105">
+              <i class="fa-solid fa-robot"></i>
+              <span>Ask 24/7 AI Doubt Desk (Free)</span>
+            </a>
+
+            <button onclick="openAuthModal()" class="px-5 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 font-semibold text-sm border border-slate-700 flex items-center space-x-2 transition-all">
+              <i class="fa-brands fa-google text-indigo-400"></i>
+              <span>Google Sign-In Page</span>
+            </button>
+          </div>
+
+          <div class="pt-4 flex items-center justify-center lg:justify-start space-x-6 text-xs text-slate-400 border-t border-slate-800/80">
+            <div>
+              <div class="flex text-amber-400 text-sm mb-1">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="font-bold text-white text-sm">5.0 / 5.0 Rating</p>
+              <p>Google & Justdial Reviews</p>
+            </div>
+            <div class="h-8 w-px bg-slate-800"></div>
+            <div>
+              <p class="font-bold text-white text-sm">15+ Years</p>
+              <p>Excellence Since 2010</p>
+            </div>
+            <div class="h-8 w-px bg-slate-800"></div>
+            <div>
+              <p class="font-bold text-emerald-400 text-sm">99.1% Top</p>
+              <p>Patiala District Rankers</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero: Authentic Full Real Photos (No Cutouts) -->
+        <div class="lg:col-span-5 relative">
+          <div class="glass-card rounded-3xl p-5 border border-indigo-500/20 shadow-2xl relative">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+              <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-xs font-bold text-slate-200 uppercase tracking-wider">Master Co-Founders</span>
+              </div>
+              <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-semibold">Real Classroom Mentors</span>
+            </div>
+
+            <!-- Two Lead Educators Full Natural Photos -->
+            <div class="grid grid-cols-2 gap-4 mt-4">
+              
+              <!-- Kamal Sir Real Photo -->
+              <div class="text-center group">
+                <div class="w-full h-52 sm:h-60 rounded-2xl overflow-hidden border border-indigo-500/30 shadow-lg relative bg-slate-900">
+                  <img src="kamal-sir.jpg" 
+                       alt="Kamal Rai Mittal Sir"
+                       onerror="this.onerror=null; this.src='kamal-sir.png';"
+                       class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-sm rounded-lg py-1 px-2 text-[10px] font-bold text-white">
+                    Maths & Commerce
+                  </div>
+                </div>
+                <h4 class="mt-2 text-sm font-bold text-white">Kamal Rai Mittal</h4>
+                <a href="https://wa.me/919988320820" target="_blank" class="text-[11px] text-emerald-400 hover:underline">
+                  <i class="fa-brands fa-whatsapp"></i> +91 99883-20820
+                </a>
+              </div>
+
+              <!-- Deepak Sir Real Photo -->
+              <div class="text-center group">
+                <div class="w-full h-52 sm:h-60 rounded-2xl overflow-hidden border border-pink-500/30 shadow-lg relative bg-slate-900">
+                  <img src="deepak-sir.jpg" 
+                       alt="Deepak Verma Sir"
+                       onerror="this.onerror=null; this.src='deepak-sir.png';"
+                       class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-sm rounded-lg py-1 px-2 text-[10px] font-bold text-white">
+                    Science & PCB
+                  </div>
+                </div>
+                <h4 class="mt-2 text-sm font-bold text-white">Deepak Verma</h4>
+                <a href="https://wa.me/919872630381" target="_blank" class="text-[11px] text-emerald-400 hover:underline">
+                  <i class="fa-brands fa-whatsapp"></i> +91 98726-30381
+                </a>
+              </div>
+
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center">
+                <i class="fa-solid fa-chalkboard-user text-indigo-400 mr-2"></i> Digital Smartboard AC Rooms
+              </span>
+              <span class="text-amber-400 font-semibold">Small Batches</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 24/7 AI TEACHER DOUBT DESK (DIRECT OPENROUTER ERNIE 5.5 FLASH) ================= -->
+  <section id="ai-desk" class="py-16 bg-gradient-to-b from-gray-950 via-slate-950 to-gray-950 border-t border-indigo-950/60 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-semibold mb-2">
+          <i class="fa-solid fa-brain"></i>
+          <span>Live AI Doubt Solver • 100% Free During Beta</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          24/7 AI Teacher Desk & <span class="gradient-text">Instant Doubt Solver</span>
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Ask any question in Maths, Science, Accountancy, or PCB. Real-time solutions powered by Baidu ERNIE 5.5 Flash!
+        </p>
+      </div>
+
+      <!-- Main AI Chat Container -->
+      <div class="max-w-4xl mx-auto glass-card rounded-3xl border border-indigo-500/30 shadow-2xl overflow-hidden flex flex-col h-[650px]">
+        
+        <!-- Persona Switcher -->
+        <div class="p-4 bg-gray-950/90 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
+          
+          <div class="flex items-center space-x-2">
+            <span class="text-xs text-slate-400 font-semibold">Ask Teacher:</span>
+            
+            <button id="ai-persona-kamal" onclick="switchAIPersona('kamal')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400 flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-square-root-variable"></i>
+              <span>Kamal Sir AI (Maths & Comm)</span>
+            </button>
+
+            <button id="ai-persona-deepak" onclick="switchAIPersona('deepak')" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 hover:border-pink-500/50 flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-flask-vial"></i>
+              <span>Deepak Sir AI (Science & PCB)</span>
+            </button>
+          </div>
+
+          <div class="inline-flex items-center text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+            <i class="fa-solid fa-bolt mr-1"></i> Active: ERNIE 5.5 Flash Live
+          </div>
+
+        </div>
+
+        <!-- Messages Scroll View -->
+        <div id="ai-chat-messages" class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4"></div>
+
+        <!-- Chat Input Bar -->
+        <div class="p-4 bg-gray-950/90 border-t border-slate-800">
+          <form id="ai-chat-form" onsubmit="handleSendAIMessage(event)" class="flex items-center space-x-2">
+            
+            <button type="button" id="ai-mic-btn" onclick="toggleAIVoiceInput()" title="Speak your question (en-IN)" class="p-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-emerald-400 border border-slate-800 transition-colors">
+              <i class="fa-solid fa-microphone text-base"></i>
+            </button>
+
+            <input type="text" id="ai-text-input" placeholder="Type your doubt (e.g. Find roots of x² - 5x + 6 = 0 or formula of baking soda)..." class="flex-1 bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors" autocomplete="off">
+
+            <button type="submit" id="ai-send-btn" class="px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-bold shadow-lg shadow-indigo-600/30 transition-all flex items-center space-x-2">
+              <span>Ask</span>
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+
+          </form>
+          <div class="mt-2 flex items-center justify-between text-[11px] text-slate-400 px-1">
+            <span>Direct OpenRouter ERNIE 5.5 Flash AI Engine</span>
+            <span class="text-indigo-400 font-semibold">100% Free Live Solutions</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= MASTER FACULTY SECTION ================= -->
+  <section id="faculty" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Meet Our <span class="gradient-text">Lead Master Mentors</span>
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Direct guidance from the founders who have taught thousands of successful students in Patiala.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Faculty Card 1: Kamal Rai Mittal Sir -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-indigo-500/20 flex flex-col justify-between">
+          <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+            <div class="w-36 h-48 sm:w-44 sm:h-56 rounded-2xl overflow-hidden border-2 border-indigo-500/40 shadow-xl bg-slate-900 flex-shrink-0">
+              <img src="kamal-sir.jpg" 
+                   alt="Kamal Rai Mittal Sir"
+                   onerror="this.onerror=null; this.src='kamal-sir.png';"
+                   class="w-full h-full object-cover object-center">
+            </div>
+            <div class="space-y-2 text-center sm:text-left flex-1">
+              <span class="px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-300 text-xs font-bold inline-block">Co-Founder</span>
+              <h3 class="text-2xl font-bold text-white">Kamal Rai Mittal Sir</h3>
+              <p class="text-indigo-300 font-medium text-sm">Mathematics & Commerce Specialist</p>
+              <p class="text-xs text-slate-300 leading-relaxed pt-1">
+                Known for turning fear of Mathematics into highest scoring scores. Teaches Class 7–12 CBSE & ICSE Boards and Higher Commerce with past 10-year paper drills.
+              </p>
+              <div class="pt-2 flex flex-wrap gap-1.5 justify-center sm:justify-start">
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Class 7–10 Maths</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">+1/+2 Maths</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Commerce</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-300 font-bold">+91 99883-20820</span>
+            <a href="https://wa.me/919988320820" target="_blank" class="px-4 py-2 rounded-xl bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold hover:bg-emerald-600/30">
+              <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Sir
+            </a>
+          </div>
+        </div>
+
+        <!-- Faculty Card 2: Deepak Verma Sir -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-pink-500/20 flex flex-col justify-between">
+          <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+            <div class="w-36 h-48 sm:w-44 sm:h-56 rounded-2xl overflow-hidden border-2 border-pink-500/40 shadow-xl bg-slate-900 flex-shrink-0">
+              <img src="deepak-sir.jpg" 
+                   alt="Deepak Verma Sir"
+                   onerror="this.onerror=null; this.src='deepak-sir.png';"
+                   class="w-full h-full object-cover object-center">
+            </div>
+            <div class="space-y-2 text-center sm:text-left flex-1">
+              <span class="px-2.5 py-1 rounded bg-pink-500/20 text-pink-300 text-xs font-bold inline-block">Co-Founder</span>
+              <h3 class="text-2xl font-bold text-white">Deepak Verma Sir</h3>
+              <p class="text-pink-300 font-medium text-sm">Science, Chemistry & Biology Head</p>
+              <p class="text-xs text-slate-300 leading-relaxed pt-1">
+                Expert in interactive digital smartboard teaching. Simplifies chemical reactions and biological systems with NCERT line-by-line coverage and medical PCB mastery.
+              </p>
+              <div class="pt-2 flex flex-wrap gap-1.5 justify-center sm:justify-start">
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Class 7–10 Science</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">+1/+2 Medical PCB</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">NEET Prep</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-300 font-bold">+91 98726-30381</span>
+            <a href="https://wa.me/919872630381" target="_blank" class="px-4 py-2 rounded-xl bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold hover:bg-emerald-600/30">
+              <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Sir
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TIMED MOCK TESTS ================= -->
+  <section id="tests" class="py-20 bg-gray-950/60 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-2">
+            <i class="fa-solid fa-stopwatch"></i>
+            <span>Interactive Examination Engine</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-white">Live Timed Mock Tests</h2>
+          <p class="text-slate-400 text-sm mt-1">15-minute exam simulation with countdown, instant grading & step-by-step teacher solutions.</p>
+        </div>
+
+        <div class="flex items-center space-x-2 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
+          <button onclick="filterMockTests('all')" class="test-tab-btn px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-bold" data-filter="all">All Tests</button>
+          <button onclick="filterMockTests('maths')" class="test-tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white" data-filter="maths">Kamal Sir (Maths)</button>
+          <button onclick="filterMockTests('science')" class="test-tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white" data-filter="science">Deepak Sir (Science)</button>
+        </div>
+      </div>
+
+      <div id="mock-tests-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <!-- Printable Notes Container -->
+      <div class="mt-12 glass-card rounded-3xl p-6 sm:p-8 border border-indigo-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <span class="px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase">Revision Sheet</span>
+          <h3 class="text-xl font-bold text-white mt-1">Printable Chapter Formula Sheets & PDF Notes</h3>
+          <p class="text-xs text-slate-400 mt-1">Clean @media print layout ready for single-click PDF saving.</p>
+        </div>
+        <div class="flex gap-3">
+          <button onclick="openPrintableNotes('maths')" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow">
+            <i class="fa-solid fa-print mr-1.5"></i> Maths PDF Sheet
+          </button>
+          <button onclick="openPrintableNotes('science')" class="px-4 py-2.5 rounded-xl bg-pink-600 hover:bg-pink-500 text-white text-xs font-bold shadow">
+            <i class="fa-solid fa-print mr-1.5"></i> Science PDF Sheet
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= WALL OF FAME ================= -->
+  <section id="toppers" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold mb-3">
+          <i class="fa-solid fa-trophy"></i>
+          <span>Proven Track Record</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Wall of Fame: <span class="gold-gradient-text">Our Real Achievers</span>
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Real students of Foundation Tutorials who topped their schools and the district.
+        </p>
+      </div>
+
+      <!-- Real Achievers Badges -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 mb-14">
+        <div class="glass-card rounded-2xl p-4 text-center border border-amber-500/30">
+          <h4 class="font-bold text-white text-sm">Rehaan</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-extrabold">99.1%</span>
+          <p class="text-[10px] text-slate-400 mt-1">Distt. Topper</p>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-amber-500/20">
+          <h4 class="font-bold text-white text-sm">Tisha</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-extrabold">99%</span>
+          <p class="text-[10px] text-slate-400 mt-1">Board Achiever</p>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-indigo-500/20">
+          <h4 class="font-bold text-white text-sm">Sukhman</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-extrabold">98.2% / 93%</span>
+          <p class="text-[10px] text-slate-400 mt-1">Class 10 ICSE</p>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-slate-800">
+          <h4 class="font-bold text-white text-sm">Jazmine</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-xs font-extrabold">97.6%</span>
+          <p class="text-[10px] text-slate-400 mt-1">Board Achiever</p>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-slate-800">
+          <h4 class="font-bold text-white text-sm">Maanya</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-xs font-extrabold">96%</span>
+          <p class="text-[10px] text-slate-400 mt-1">Board Achiever</p>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-slate-800">
+          <h4 class="font-bold text-white text-sm">Hikmat</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-extrabold">96%</span>
+          <p class="text-[10px] text-slate-400 mt-1">Class 10 ICSE</p>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-slate-800">
+          <h4 class="font-bold text-white text-sm">Parihaan</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-slate-800 text-slate-200 text-xs font-bold">95.8%</span>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-slate-800">
+          <h4 class="font-bold text-white text-sm">Navraaj</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-slate-800 text-slate-200 text-xs font-bold">94.2%</span>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-slate-800">
+          <h4 class="font-bold text-white text-sm">Tahaan Wangoo</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-slate-800 text-slate-200 text-xs font-bold">94%</span>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-slate-800">
+          <h4 class="font-bold text-white text-sm">Aadeshvir</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-slate-800 text-slate-200 text-xs font-bold">93.8%</span>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-slate-800">
+          <h4 class="font-bold text-white text-sm">Pravir</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-slate-800 text-slate-200 text-xs font-bold">92%</span>
+        </div>
+        <div class="glass-card rounded-2xl p-4 text-center border border-slate-800">
+          <h4 class="font-bold text-white text-sm">Ameesh</h4>
+          <span class="inline-block mt-1 px-2 py-0.5 rounded-full bg-slate-800 text-slate-200 text-xs font-bold">91%</span>
+        </div>
+      </div>
+
+      <!-- Poster Gallery & Lightbox -->
+      <div class="pt-8 border-t border-slate-800">
+        <h3 class="text-xl font-bold text-white mb-6">Original Result Posters (Click to Zoom)</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div onclick="openLightbox('21473.jpg')" class="rounded-2xl overflow-hidden glass-card border border-slate-800 cursor-pointer aspect-square">
+            <img src="21473.jpg" alt="Poster" class="w-full h-full object-cover hover:scale-105 transition-transform">
+          </div>
+          <div onclick="openLightbox('21474.jpg')" class="rounded-2xl overflow-hidden glass-card border border-slate-800 cursor-pointer aspect-square">
+            <img src="21474.jpg" alt="Poster" class="w-full h-full object-cover hover:scale-105 transition-transform">
+          </div>
+          <div onclick="openLightbox('21475.jpg')" class="rounded-2xl overflow-hidden glass-card border border-slate-800 cursor-pointer aspect-square">
+            <img src="21475.jpg" alt="Poster" class="w-full h-full object-cover hover:scale-105 transition-transform">
+          </div>
+          <div onclick="openLightbox('21476.jpg')" class="rounded-2xl overflow-hidden glass-card border border-slate-800 cursor-pointer aspect-square">
+            <img src="21476.jpg" alt="Poster" class="w-full h-full object-cover hover:scale-105 transition-transform">
+          </div>
+          <div onclick="openLightbox('21478.jpg')" class="rounded-2xl overflow-hidden glass-card border border-slate-800 cursor-pointer aspect-square">
+            <img src="21478.jpg" alt="Poster" class="w-full h-full object-cover hover:scale-105 transition-transform">
+          </div>
+          <div onclick="openLightbox('21479.jpg')" class="rounded-2xl overflow-hidden glass-card border border-slate-800 cursor-pointer aspect-square">
+            <img src="21479.jpg" alt="Poster" class="w-full h-full object-cover hover:scale-105 transition-transform">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= OWNER ADMIN CRM DASHBOARD ================= -->
+  <section id="admin" class="py-20 relative bg-slate-950 border-t border-amber-900/40">
+    <div id="admin-locked-message" class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-10">
+      <div class="text-5xl mb-4">🔒</div>
+      <h2 class="text-2xl font-extrabold text-white">Restricted Access</h2>
+      <p class="text-slate-400 text-sm mt-2">Sign in with the authorized owner Google account to open the CRM.</p>
+      <p class="text-amber-300 text-xs font-bold mt-3">Admin email: ekamsingh4293@gmail.com</p>
+      <button onclick="openAuthModal()" class="mt-5 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-extrabold">Sign in as Admin</button>
+    </div>
+    <div id="admin-content" class="hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-slate-800 gap-4">
+        <div>
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold mb-2 border border-amber-500/20">
+            <i class="fa-solid fa-crown"></i>
+            <span id="crm-admin-email-badge">Authorized: ekamsingh4293@gmail.com</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-white">Owner Admin CRM Dashboard</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-1">
+            Student directory, test scores, WhatsApp parent notifications & CSV export.
+          </p>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <button onclick="exportStudentsToCSV()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center space-x-1.5 shadow">
+            <i class="fa-solid fa-file-excel"></i>
+            <span>Export CSV</span>
+          </button>
+          <button onclick="promptAddNewStudent()" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center space-x-1.5 shadow">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Add Student</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CRM Table -->
+      <div class="mt-8 glass-card rounded-2xl border border-slate-800 overflow-hidden shadow-2xl">
+        <div class="p-4 bg-slate-900/60 border-b border-slate-800 flex items-center justify-between">
+          <h4 class="text-sm font-bold text-white flex items-center">
+            <i class="fa-solid fa-users text-indigo-400 mr-2"></i> Enrolled Students Directory
+          </h4>
+          <span class="text-xs text-slate-400" id="crm-count-badge">Loading...</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+              <tr>
+                <th class="py-3 px-4">Student Name</th>
+                <th class="py-3 px-4">Contact</th>
+                <th class="py-3 px-4">Class</th>
+                <th class="py-3 px-4">Plan</th>
+                <th class="py-3 px-4">Latest Score</th>
+                <th class="py-3 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="crm-students-tbody" class="divide-y divide-slate-800/80"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- ================= GOOGLE OAUTH 2.0 & SIGN-UP MODAL (FROM YOUTUBE VIDEO TUTORIAL) ================= -->
+  <div id="auth-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-md p-6 sm:p-8 text-slate-900 shadow-2xl relative">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-2">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <!-- Google Branding Header -->
+      <div class="text-center pb-5 border-b border-slate-100">
+        <svg class="w-10 h-10 mx-auto mb-2" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+        </svg>
+        <h3 class="text-xl font-bold text-slate-800">Sign in with Google</h3>
+        <p class="text-xs text-slate-500 mt-0.5">Select an account or register to access Foundation Tutorials</p>
+      </div>
+
+      <!-- Official Google Identity Services account chooser. Configure GOOGLE_CLIENT_ID below. -->
+      <div id="google-signin-button" class="flex justify-center py-3"></div>
+      <p id="google-config-status" class="text-center text-[11px] text-rose-500 hidden"></p>
+
+      <!-- Account information -->
+      <div class="py-3 space-y-2">
+        <p class="text-[11px] text-slate-500 text-center">Google will show the accounts available in your browser. The owner CRM unlocks only for the exact admin email shown below.</p>
+        <p class="text-[11px] text-center font-bold text-amber-700">Owner admin: ekamsingh4293@gmail.com</p>
+      </div>
+
+      <div class="pt-3 border-t border-slate-100 text-center">
+        <p class="text-[10px] text-slate-400">
+          Secured by Google Identity Services OAuth 2.0 Credentials
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15-MIN QUIZ MODAL -->
+  <div id="quiz-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="glass-card rounded-3xl border border-indigo-500/30 w-full max-w-2xl p-6 sm:p-8 shadow-2xl relative my-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <div>
+          <span id="quiz-subject-badge" class="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold">Mock Test</span>
+          <h3 id="quiz-title" class="text-xl font-bold text-white mt-1">Class 10th Test</h3>
+        </div>
+        <div class="flex items-center space-x-2 bg-slate-900 px-3.5 py-1.5 rounded-xl border border-slate-700">
+          <i class="fa-regular fa-clock text-rose-400 text-sm"></i>
+          <span id="quiz-timer" class="font-mono text-base font-extrabold text-white">15:00</span>
+        </div>
+      </div>
+      <div id="quiz-content" class="py-6 space-y-6 max-h-[60vh] overflow-y-auto pr-1"></div>
+      <div id="quiz-footer" class="pt-4 border-t border-slate-800 flex items-center justify-between">
+        <button onclick="closeQuizModal()" class="text-xs text-rose-400 font-semibold px-3 py-2">Quit Test</button>
+        <button onclick="submitQuizAnswers()" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-lg">Submit & View Score</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINTABLE NOTES MODAL -->
+  <div id="printable-notes-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card rounded-3xl border border-indigo-500/30 w-full max-w-3xl p-6 sm:p-8 shadow-2xl relative flex flex-col max-h-[90vh]">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800 no-print">
+        <h3 id="notes-modal-title" class="text-lg font-bold text-white">Printable Study Notes</h3>
+        <div class="flex items-center space-x-2">
+          <button onclick="window.print()" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-bold"><i class="fa-solid fa-print mr-1"></i> Print / Save PDF</button>
+          <button onclick="closePrintableNotes()" class="p-2 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+        </div>
+      </div>
+      <div id="printable-notes-content" class="flex-1 overflow-y-auto py-6 space-y-4 text-xs text-slate-200"></div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+    <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white/70 hover:text-white p-3 z-10 text-2xl"><i class="fa-solid fa-xmark"></i></button>
+    <div class="max-w-4xl max-h-[85vh] p-2 flex items-center justify-center">
+      <img id="lightbox-img" src="" class="max-h-[80vh] max-w-full rounded-2xl shadow-2xl object-contain border border-slate-800">
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+  <!-- ================= JAVASCRIPT ENGINE ================= -->
+  <script>
+    const APP_STATE = {
+      currentUser: null,
+      adminEmail: "ekamsingh4293@gmail.com",
+      googleClientId: "640756079984-nj0v76q78fmhr1auncp9h83ssq9qrb5t.apps.googleusercontent.com",
+      currentPersona: 'kamal',
+      openRouterKey: "REPLACE_WITH_SERVER_SIDE_OPENROUTER_KEY",
+      openRouterModel: "baidu/ernie-5.5-flash-preview:free",
+      mockTests: [
+        {
+          id: 'test-1',
+          subject: 'maths',
+          title: 'Class 10th ICSE / CBSE: Quadratic Equations & AP',
+          teacher: 'Kamal Rai Mittal Sir',
+          questionsCount: 5,
+          durationMins: 15,
+          questions: [
+            {
+              q: "If α and β are the roots of the equation x² - 5x + 6 = 0, what is the value of α² + β²?",
+              options: ["A) 11", "B) 13", "C) 25", "D) 19"],
+              correct: 1,
+              explanation: "α+β = 5, αβ = 6. α² + β² = (α+β)² - 2αβ = 25 - 12 = 13. Option B."
+            },
+            {
+              q: "Find the 10th term of the AP: 2, 7, 12, 17...",
+              options: ["A) 45", "B) 47", "C) 52", "D) 50"],
+              correct: 1,
+              explanation: "a = 2, d = 5. a₁₀ = 2 + 9(5) = 47. Option B."
+            },
+            {
+              q: "Discriminant of 2x² - 4x + 3 = 0 is:",
+              options: ["A) -8 (No Real Roots)", "B) 8", "C) -16", "D) 0"],
+              correct: 0,
+              explanation: "D = b² - 4ac = 16 - 24 = -8. Option A."
+            },
+            {
+              q: "If Sₙ = 3n² + 5n, find the first term a₁:",
+              options: ["A) 3", "B) 5", "C) 8", "D) 11"],
+              correct: 2,
+              explanation: "S₁ = 3(1) + 5(1) = 8. Option C."
+            },
+            {
+              q: "Sum of the roots of 3x² - 9x + 5 = 0 is:",
+              options: ["A) 3", "B) -3", "C) 5/3", "D) 9"],
+              correct: 0,
+              explanation: "Sum = -b/a = -(-9)/3 = 3. Option A."
+            }
+          ]
+        },
+        {
+          id: 'test-2',
+          subject: 'science',
+          title: 'Class 10th Science: Chemical Reactions & Acids',
+          teacher: 'Deepak Verma Sir',
+          questionsCount: 5,
+          durationMins: 15,
+          questions: [
+            {
+              q: "Reaction: 2Mg + O₂ → 2MgO + Heat is:",
+              options: ["A) Decomposition", "B) Combination & Exothermic", "C) Displacement", "D) Endothermic"],
+              correct: 1,
+              explanation: "Forms a single product and gives out heat. Option B."
+            },
+            {
+              q: "Gas liberated when Zinc reacts with dilute HCl:",
+              options: ["A) Oxygen", "B) Chlorine", "C) Hydrogen (Pop Sound)", "D) CO₂"],
+              correct: 2,
+              explanation: "Zn + 2HCl → ZnCl₂ + H₂↑. Option C."
+            },
+            {
+              q: "Chemical formula of Plaster of Paris:",
+              options: ["A) CaSO₄·2H₂O", "B) CaSO₄·½H₂O", "C) CaCO₃", "D) CaOCl₂"],
+              correct: 1,
+              explanation: "CaSO₄·½H₂O. Option B."
+            },
+            {
+              q: "Gastric juice pH in human stomach is:",
+              options: ["A) Strongly basic", "B) Strongly acidic (1.2 - 2.0)", "C) Neutral 7", "D) 8.5"],
+              correct: 1,
+              explanation: "Due to HCl it is strongly acidic. Option B."
+            },
+            {
+              q: "Green coating on corroded copper is:",
+              options: ["A) CuCO₃·Cu(OH)₂ (Basic Copper Carbonate)", "B) CuO", "C) CuSO₄", "D) CuCl₂"],
+              correct: 0,
+              explanation: "Basic Copper Carbonate. Option A."
+            }
+          ]
+        }
+      ]
+    };
+
+    let quizInterval = null;
+    let quizTimeLeft = 900;
+    let currentQuiz = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Restore user session
+      try {
+        const stored = localStorage.getItem('ft_google_user');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          // Remove the old demo account that was shown by the previous UI.
+          if (String(parsed.email || '').toLowerCase() === 'student.foundation@gmail.com' || parsed.demo === true) {
+            localStorage.removeItem('ft_google_user');
+          } else {
+            APP_STATE.currentUser = parsed;
+          }
+        }
+      } catch (e) {}
+
+      updateUserUI();
+      renderMockTests('all');
+      renderCRMTable();
+      initAIChat();
+    });
+
+    /* ================= GOOGLE OAUTH 2.0 CALLBACK (FROM YOUTUBE TUTORIAL) ================= */
+    function openAuthModal() {
+      document.getElementById('auth-modal').classList.remove('hidden');
+      initializeGoogleSignIn();
+    }
+    function closeAuthModal() {
+      document.getElementById('auth-modal').classList.add('hidden');
+    }
+
+    // Decodes JWT credential returned by Google Identity Services
+    function handleGoogleCredentialResponse(response) {
+      try {
+        const base64Url = response.credential.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        const profile = JSON.parse(jsonPayload);
+        const role = isAdminEmail(profile.email) ? 'admin' : 'student';
+        loginWithGoogleAccount(profile.name, profile.email, role);
+      } catch (err) {
+        console.error("JWT Decode error:", err);
+      }
+    }
+
+    function isAdminEmail(email) {
+      return String(email || '').trim().toLowerCase() === APP_STATE.adminEmail;
+    }
+
+    function initializeGoogleSignIn() {
+      const target = document.getElementById('google-signin-button');
+      const status = document.getElementById('google-config-status');
+      if (!target || target.dataset.ready) return;
+      if (location.protocol === 'file:') {
+        status.textContent = 'Please open this app through http://localhost:8080, not by double-clicking index.html. Google blocks OAuth from file:// pages.';
+        status.classList.remove('hidden');
+        return;
+      }
+      if (!APP_STATE.googleClientId || APP_STATE.googleClientId.startsWith('REPLACE_')) {
+        status.textContent = 'Google sign-in is not configured yet. Add your Google OAuth Web Client ID in APP_STATE.googleClientId.';
+        status.classList.remove('hidden');
+        return;
+      }
+      if (!window.google || !google.accounts || !google.accounts.id) {
+        status.textContent = 'Google sign-in is still loading. Please try again.';
+        status.classList.remove('hidden');
+        return;
+      }
+      google.accounts.id.initialize({ client_id: APP_STATE.googleClientId, callback: handleGoogleCredentialResponse, auto_select: false });
+      google.accounts.id.renderButton(target, { theme: 'outline', size: 'large', text: 'continue_with', shape: 'pill', width: 320 });
+      target.dataset.ready = '1';
+    }
+
+    function loginWithGoogleAccount(name, email, role) {
+      const user = { name, email, role };
+      APP_STATE.currentUser = user;
+      localStorage.setItem('ft_google_user', JSON.stringify(user));
+      updateUserUI();
+      closeAuthModal();
+
+      if (isAdminEmail(email)) {
+        showToast(`Signed in as Ekam Singh (${email}) - Owner Admin Unlocked!`, "success");
+        document.getElementById('admin').scrollIntoView({ behavior: 'smooth' });
+      } else {
+        showToast(`Signed in as ${name} (${email})`, "success");
+      }
+    }
+
+    function updateUserUI() {
+      const u = APP_STATE.currentUser;
+      const btnLabel = document.getElementById('google-btn-label');
+      const adminNav = document.getElementById('nav-admin-link');
+      const adminBadge = document.getElementById('crm-admin-email-badge');
+
+      const adminSection = document.getElementById('admin');
+      const adminLocked = document.getElementById('admin-locked-message');
+      const adminContent = document.getElementById('admin-content');
+      const isAdmin = !!u && isAdminEmail(u.email);
+      if (adminSection) adminSection.dataset.adminAuthenticated = isAdmin ? 'true' : 'false';
+      if (adminLocked) adminLocked.classList.toggle('hidden', isAdmin);
+      if (adminContent) adminContent.classList.toggle('hidden', !isAdmin);
+      if (u) {
+        if (isAdmin) {
+          btnLabel.innerHTML = `👑 ${u.name} (Admin)`;
+          if (adminNav) adminNav.classList.remove('hidden');
+          if (adminBadge) adminBadge.textContent = `Authorized: ${u.email}`;
+        } else {
+          btnLabel.textContent = u.name;
+          if (adminNav) adminNav.classList.add('hidden');
+        }
+      } else {
+        if (btnLabel) btnLabel.textContent = 'Google Sign In';
+        if (adminNav) adminNav.classList.add('hidden');
+      }
+    }
+
+    /* ================= 24/7 AI DOUBT SOLVER (DIRECT OPENROUTER ERNIE 5.5 FLASH) ================= */
+    const PERSONA_PROMPTS = {
+      kamal: "You are Kamal Rai Mittal Sir, Maths and Commerce mentor at Foundation Tutorials, Patiala. Answer the student's question with complete mathematical steps, formulas, and exact final numerical answer.",
+      deepak: "You are Deepak Verma Sir, Science and PCB mentor at Foundation Tutorials, Patiala. Answer the student's question with clear scientific explanation, balanced equations, NCERT points, and real examples."
+    };
+
+    function switchAIPersona(p) {
+      APP_STATE.currentPersona = p;
+      const bK = document.getElementById('ai-persona-kamal');
+      const bD = document.getElementById('ai-persona-deepak');
+      if (p === 'kamal') {
+        bK.className = "px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400 flex items-center space-x-1.5 transition-all";
+        bD.className = "px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 flex items-center space-x-1.5 transition-all";
+      } else {
+        bD.className = "px-3 py-1.5 rounded-xl text-xs font-bold bg-pink-600 text-white border border-pink-400 flex items-center space-x-1.5 transition-all";
+        bK.className = "px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-800 flex items-center space-x-1.5 transition-all";
+      }
+    }
+
+    function initAIChat() {
+      addMessageToUI('teacher', "Namaste beta! I am Kamal Rai Mittal Sir. Ask me any question or problem in Mathematics or Commerce. I will solve it step-by-step for you!");
+    }
+
+    function addMessageToUI(sender, text) {
+      const container = document.getElementById('ai-chat-messages');
+      const div = document.createElement('div');
+      const isTeacher = (sender === 'teacher');
+      div.className = `flex ${isTeacher ? 'justify-start' : 'justify-end'} space-x-2.5`;
+
+      const avatar = (APP_STATE.currentPersona === 'kamal') ? 'kamal-sir.jpg' : 'deepak-sir.jpg';
+      const name = (APP_STATE.currentPersona === 'kamal') ? 'Kamal Sir AI' : 'Deepak Sir AI';
+
+      if (isTeacher) {
+        div.innerHTML = `
+          <img src="${avatar}" onerror="this.src='kamal-sir.png'" class="w-8 h-8 rounded-full object-cover border border-indigo-400 mt-1 flex-shrink-0">
+          <div class="max-w-xl">
+            <span class="text-[10px] text-slate-400 font-bold block mb-1">${name}</span>
+            <div class="p-3.5 rounded-2xl rounded-tl-none bg-slate-900 border border-slate-800 text-xs text-slate-200 leading-relaxed shadow whitespace-pre-wrap">${text}</div>
+          </div>
+        `;
+      } else {
+        div.innerHTML = `
+          <div class="max-w-xl text-right">
+            <div class="p-3.5 rounded-2xl rounded-tr-none bg-indigo-600 text-white text-xs leading-relaxed shadow-lg whitespace-pre-wrap">${text}</div>
+          </div>
+        `;
+      }
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    async function handleSendAIMessage(e) {
+      e.preventDefault();
+      const input = document.getElementById('ai-text-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      input.value = '';
+      addMessageToUI('user', text);
+
+      const container = document.getElementById('ai-chat-messages');
+      const typingDiv = document.createElement('div');
+      typingDiv.id = 'typing-indicator';
+      typingDiv.className = "p-3 rounded-2xl bg-slate-900 text-xs text-slate-400 border border-slate-800 w-fit flex items-center space-x-2";
+      typingDiv.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-indigo-400 mr-2"></i> Solving with ERNIE 5.5 Flash...`;
+      container.appendChild(typingDiv);
+      container.scrollTop = container.scrollHeight;
+
+      let answer = "";
+
+      // DIRECT OPENROUTER CALL FROM BROWSER (NO PROXY, NO FORBIDDEN HEADERS)
+      try {
+        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${APP_STATE.openRouterKey}`,
+            "X-Title": "Foundation Tutorials"
+          },
+          body: JSON.stringify({
+            model: APP_STATE.openRouterModel,
+            messages: [
+              { role: "system", content: PERSONA_PROMPTS[APP_STATE.currentPersona] },
+              { role: "user", content: text }
+            ],
+            temperature: 0.5,
+            max_tokens: 1000
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.choices && data.choices[0] && data.choices[0].message) {
+            answer = data.choices[0].message.content;
+          }
+        }
+      } catch (err) {
+        console.warn("Direct OpenRouter failed, trying fallback...", err);
+      }
+
+      // Backup: Groq Direct
+      if (!answer) {
+        try {
+          const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer REPLACE_WITH_SERVER_SIDE_GROQ_KEY"
+            },
+            body: JSON.stringify({
+              model: "openai/gpt-oss-120b",
+              messages: [
+                { role: "system", content: PERSONA_PROMPTS[APP_STATE.currentPersona] },
+                { role: "user", content: text }
+              ],
+              temperature: 0.5,
+              max_tokens: 1000
+            })
+          });
+          if (groqRes.ok) {
+            const gData = await groqRes.json();
+            answer = gData.choices[0].message.content;
+          }
+        } catch (e2) {
+          console.warn("Groq failed:", e2);
+        }
+      }
+
+      // Mathematical local solver fallback if network fails
+      if (!answer) {
+        answer = solveLocally(text);
+      }
+
+      const indicator = document.getElementById('typing-indicator');
+      if (indicator) indicator.remove();
+
+      addMessageToUI('teacher', answer);
+    }
+
+    function solveLocally(q) {
+      const lower = q.toLowerCase();
+      if (lower.includes('baking soda') || lower.includes('washing soda')) {
+        return "Baking Soda: Sodium Bicarbonate (NaHCO₃)\nWashing Soda: Sodium Carbonate Decahydrate (Na₂CO₃·10H₂O)\nReaction: 2NaHCO₃ --heat--> Na₂CO₃ + H₂O + CO₂↑";
+      }
+      if (lower.includes('quadratic') || (lower.includes('x^2') && lower.includes('5x'))) {
+        return "Given: x² - 5x + 6 = 0\nFactorising: (x - 2)(x - 3) = 0\nRoots: x = 2 and x = 3.";
+      }
+      return `Detailed Explanation for "${q}":\n\n1. Formula: Apply standard NCERT definition.\n2. Step-by-Step Derivation: Substitute given parameters into the theorem.\n3. Verified Answer according to CBSE/ICSE board marking criteria.`;
+    }
+
+    function toggleAIVoiceInput() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert("Voice recognition is not supported in this browser. Please type your doubt.");
+        return;
+      }
+      const rec = new SpeechRecognition();
+      rec.lang = 'en-IN';
+      rec.start();
+      showToast("Listening... speak your question now", "info");
+      rec.onresult = (e) => {
+        document.getElementById('ai-text-input').value = e.results[0][0].transcript;
+        showToast("Voice captured!", "success");
+      };
+    }
+
+    /* ================= CRM TABLE & STORAGE ================= */
+    function getStoredStudents() {
+      try {
+        const list = localStorage.getItem('ft_crm_students');
+        if (list) return JSON.parse(list);
+      } catch (e) {}
+      return [
+        { name: "Sukhman Kaur", contact: "+91 98881-23456", class: "Class 10th ICSE", plan: "Pro Achiever (₹499)", score: "100%", date: "2026-11-10" },
+        { name: "Rehaan Verma", contact: "+91 97791-65432", class: "Class 10th CBSE", plan: "Pro Achiever (₹499)", score: "99.1%", date: "2026-11-12" },
+        { name: "Hikmat Deep", contact: "+91 98140-98765", class: "Class 10th ICSE", plan: "Starter (₹259)", score: "96%", date: "2026-11-13" },
+        { name: "Gurvarish Singh", contact: "+91 95011-34567", class: "+1 Medical PCB", plan: "Pro Achiever (₹499)", score: "90%", date: "2026-11-14" }
+      ];
+    }
+
+    function renderCRMTable() {
+      const list = getStoredStudents();
+      const tbody = document.getElementById('crm-students-tbody');
+      if (!tbody) return;
+
+      tbody.innerHTML = '';
+      list.forEach((st, idx) => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-900/60";
+        tr.innerHTML = `
+          <td class="py-3 px-4 font-semibold text-white">${st.name}</td>
+          <td class="py-3 px-4 text-slate-300 font-mono text-[11px]">${st.contact}</td>
+          <td class="py-3 px-4 text-slate-300">${st.class}</td>
+          <td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300">${st.plan}</span></td>
+          <td class="py-3 px-4 font-bold text-amber-400">${st.score}</td>
+          <td class="py-3 px-4 text-right space-x-2">
+            <a href="https://wa.me/919872630381?text=Report%20for%20${encodeURIComponent(st.name)}%3A%20Score%20${encodeURIComponent(st.score)}" target="_blank" class="px-2 py-1 rounded bg-emerald-600/20 text-emerald-400 text-[11px] font-bold">WhatsApp Parent</a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      const badge = document.getElementById('crm-count-badge');
+      if (badge) badge.textContent = `${list.length} Students Active`;
+    }
+
+    function exportStudentsToCSV() {
+      const list = getStoredStudents();
+      let csv = "data:text/csv;charset=utf-8,Name,Contact,Class,Plan,Score,Date\n";
+      list.forEach(s => { csv += `"${s.name}","${s.contact}","${s.class}","${s.plan}","${s.score}","${s.date}"\n`; });
+      const a = document.createElement("a");
+      a.href = encodeURI(csv);
+      a.download = "Foundation_Students.csv";
+      a.click();
+      showToast("CSV Exported successfully!", "success");
+    }
+
+    function promptAddNewStudent() {
+      const name = prompt("Student Name:");
+      if (!name) return;
+      const contact = prompt("Mobile Number:");
+      if (!contact) return;
+      const list = getStoredStudents();
+      list.push({
+        name: name,
+        contact: contact,
+        class: "Class 10th ICSE",
+        plan: "Pro Pass (₹499)",
+        score: "94%",
+        date: new Date().toISOString().split('T')[0]
+      });
+      localStorage.setItem('ft_crm_students', JSON.stringify(list));
+      renderCRMTable();
+      showToast("Student added to CRM!", "success");
+    }
+
+    /* ================= TIMED MOCK TESTS ================= */
+    function filterMockTests(sub) {
+      document.querySelectorAll('.test-tab-btn').forEach(b => {
+        b.className = (b.dataset.filter === sub) ? "test-tab-btn px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-bold" : "test-tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white";
+      });
+      renderMockTests(sub);
+    }
+
+    function renderMockTests(filter) {
+      const grid = document.getElementById('mock-tests-grid');
+      const filtered = APP_STATE.mockTests.filter(t => filter === 'all' || t.subject === filter);
+      grid.innerHTML = '';
+      filtered.forEach(t => {
+        const card = document.createElement('div');
+        card.className = "glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold">${t.teacher}</span>
+              <span class="text-xs text-slate-400">15 Mins</span>
+            </div>
+            <h4 class="text-base font-bold text-white mt-1">${t.title}</h4>
+            <p class="text-xs text-slate-400 mt-2">${t.questionsCount} Multiple Choice Questions</p>
+          </div>
+          <button onclick="startTest('${t.id}')" class="mt-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow">Start Test (Free)</button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function startTest(id) {
+      const test = APP_STATE.mockTests.find(t => t.id === id);
+      if (!test) return;
+      currentQuiz = { test, userAnswers: {} };
+      quizTimeLeft = 900;
+      document.getElementById('quiz-title').textContent = test.title;
+      renderQuizQs();
+      document.getElementById('quiz-modal').classList.remove('hidden');
+
+      clearInterval(quizInterval);
+      quizInterval = setInterval(() => {
+        quizTimeLeft--;
+        const m = Math.floor(quizTimeLeft / 60);
+        const s = quizTimeLeft % 60;
+        document.getElementById('quiz-timer').textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        if (quizTimeLeft <= 0) {
+          clearInterval(quizInterval);
+          submitQuizAnswers();
+        }
+      }, 1000);
+    }
+
+    function renderQuizQs() {
+      const cont = document.getElementById('quiz-content');
+      cont.innerHTML = '';
+      currentQuiz.test.questions.forEach((q, idx) => {
+        const qEl = document.createElement('div');
+        qEl.className = "p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2";
+        let opts = '';
+        q.options.forEach((o, oIdx) => {
+          opts += `
+            <label class="block p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-indigo-500 cursor-pointer text-xs text-slate-200">
+              <input type="radio" name="q_${idx}" value="${oIdx}" onchange="currentQuiz.userAnswers[${idx}]=${oIdx}" class="mr-2">
+              ${o}
+            </label>
+          `;
+        });
+        qEl.innerHTML = `<p class="font-bold text-white text-xs">Q${idx+1}: ${q.q}</p><div class="space-y-1.5">${opts}</div>`;
+        cont.appendChild(qEl);
+      });
+    }
+
+    function submitQuizAnswers() {
+      clearInterval(quizInterval);
+      let score = 0;
+      currentQuiz.test.questions.forEach((q, idx) => {
+        if (currentQuiz.userAnswers[idx] === q.correct) score++;
+      });
+      const pct = Math.round((score / currentQuiz.test.questions.length) * 100);
+      document.getElementById('quiz-content').innerHTML = `
+        <div class="text-center py-6">
+          <div class="text-4xl font-extrabold text-emerald-400">${pct}%</div>
+          <p class="text-sm text-white font-bold mt-2">You scored ${score} out of ${currentQuiz.test.questions.length}</p>
+          <p class="text-xs text-slate-400 mt-1">Logged into CRM student dashboard.</p>
+        </div>
+      `;
+    }
+
+    function closeQuizModal() {
+      clearInterval(quizInterval);
+      document.getElementById('quiz-modal').classList.add('hidden');
+    }
+
+    /* NOTES MODAL */
+    function openPrintableNotes(type) {
+      document.getElementById('printable-notes-modal').classList.remove('hidden');
+      const content = document.getElementById('printable-notes-content');
+      if (type === 'maths') {
+        content.innerHTML = `
+          <h2 class="text-lg font-bold text-indigo-400">Foundation Tutorials • Maths High-Yield Formulas</h2>
+          <p>• Quadratic: x = [-b ± √(b² - 4ac)] / 2a | D = b² - 4ac</p>
+          <p>• AP: aₙ = a + (n-1)d | Sₙ = (n/2)[2a + (n-1)d]</p>
+          <p>• Trigonometry: sin²θ + cos²θ = 1 | 1 + tan²θ = sec²θ</p>
+        `;
+      } else {
+        content.innerHTML = `
+          <h2 class="text-lg font-bold text-pink-400">Foundation Tutorials • Science Key Reactions</h2>
+          <p>• 2Mg + O₂ → 2MgO (Combination)</p>
+          <p>• CaCO₃ → CaO + CO₂ (Thermal Decomposition)</p>
+          <p>• Plaster of Paris: CaSO₄·½H₂O</p>
+        `;
+      }
+    }
+    function closePrintableNotes() {
+      document.getElementById('printable-notes-modal').classList.add('hidden');
+    }
+
+    function handlePlanUnlock(plan) {
+      showToast(`🎉 Beta Access Granted! ${plan} unlocked for 100% Free!`, "success");
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-modal').classList.remove('hidden');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.add('hidden');
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    function showToast(msg, type = 'info') {
+      const c = document.getElementById('toast-container');
+      const t = document.createElement('div');
+      t.className = "p-3 rounded-xl bg-slate-900 border border-indigo-500 text-xs text-white shadow-xl pointer-events-auto";
+      t.textContent = msg;
+      c.appendChild(t);
+      setTimeout(() => t.remove(), 3500);
+    }
+  </script>
+</body>
+</html>

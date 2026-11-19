@@ -1,0 +1,10 @@
+# Native/installer artifacts are not part of the hosted web site
+Foundation-Tutorials-Patiala.apk
+native-android/
+recording-contact.jpg
+
+# Local/editor files
+.env
+.env.*
+node_modules/
+.DS_Store
